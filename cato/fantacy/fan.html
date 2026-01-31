@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@nimas | Fantacy Books</title>
+    <link rel="stylesheet" href="fan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="transition-layer" id="revealLayer"></div>
+    <div class="light-stage"><div class="spotlight" id="spotlight"></div></div>
+
+    <aside class="sidebar-wrapper">
+        <div class="sidebar">
+            <div class="nav-btn active"><span>🏠</span></div>
+            <div class="nav-btn"><span>💭</span></div>
+            <div class="nav-btn"><span>📚</span></div>
+            <div class="nav-btn"><span>🤝</span></div>
+        </div>
+    </aside>
+
+    <header class="navbar">
+        <div class="brand">
+            <span class="tagline">CATEGORY</span>
+            <h1 class="title">FANTASY</h1>
+        </div>
+        <div class="search-area">
+            <div class="glass-search">
+                <input type="text" id="vaultSearch" placeholder="Search archives...">
+                <button id="searchBtn" disabled><i>Find</i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="viewport" id="mainViewport">
+        <div class="arc-track" id="arcTrack">
+            <a href="book1.html" class="ui-card">
+                <div class="card-glass">
+                    <div class="poster" style="background-image: url('https://picsum.photos/seed/p1/400/600');"></div>
+                    <div class="content">
+                        <h3>Shadow King</h3>
+                        <p>Epic Saga • 2025</p>
+                    </div>
+                </div>
+            </a>
+            <a href="book2.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p2/400/600');"></div><div class="content"><h3>Dragon Born</h3><p>Magic Lore</p></div></div></a>
+            <a href="book3.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p3/400/600');"></div><div class="content"><h3>Moonlight</h3><p>Elven Tales</p></div></div></a>
+            <a href="book4.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p4/400/600');"></div><div class="content"><h3>Iron Crown</h3><p>War Strategy</p></div></div></a>
+            <a href="book5.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p5/400/600');"></div><div class="content"><h3>Silent Blade</h3><p>Noir Fantasy</p></div></div></a>
+            <a href="book6.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p6/400/600');"></div><div class="content"><h3>Starfall</h3><p>Space Opera</p></div></div></a>
+            <a href="book7.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p7/400/600');"></div><div class="content"><h3>Ghost Path</h3><p>Dark Mythos</p></div></div></a>
+            <a href="book8.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p8/400/600');"></div><div class="content"><h3>Ancient Oak</h3><p>Forest Magic</p></div></div></a>
+            <a href="book9.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p9/400/600');"></div><div class="content"><h3>Frost Bite</h3><p>Winter Saga</p></div></div></a>
+            <a href="book10.html" class="ui-card"><div class="card-glass"><div class="poster" style="background-image: url('https://picsum.photos/seed/p10/400/600');"></div><div class="content"><h3>Eternal Sea</h3><p>Deep Legend</p></div></div></a>
+        </div>
+    </main>
+
+    <div class="pagination-container">
+        <div class="dots-track" id="dotsTrack"></div>
+    </div>
+
+    <script src="fan.js"></script>
+</body>
+</html>

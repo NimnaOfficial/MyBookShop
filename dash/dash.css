@@ -1,0 +1,159 @@
+:root {
+    --dark-purple: #0f081d;
+    --sidebar-purple: rgba(35, 24, 61, 0.4);
+    --accent-pink: #ff7eb3;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(rgba(15, 8, 29, 0.8), rgba(15, 8, 29, 0.8)), 
+                url('https://wallpapercave.com/wp/wp7196356.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes openBook {
+    0% { transform: rotateY(90deg); opacity: 0; }
+    100% { transform: rotateY(0deg); opacity: 1; }
+}
+
+.dash-wrapper {
+    height: 100%;
+    width: 100%;
+    transform-origin: left center;
+    animation: openBook 1.2s cubic-bezier(0.15, 0, 0.15, 1) forwards;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    transition: filter 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 80px; height: 90vh; margin: auto 0 auto 20px;
+    background: var(--sidebar-purple);
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 30px 15px; border: 1px solid var(--glass-border); border-radius: 30px;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+    overflow: hidden; z-index: 1000;
+}
+.sidebar:hover { width: 220px; box-shadow: 10px 0 30px rgba(0,0,0,0.3); }
+
+.icon, .logout-icon {
+    display: flex; align-items: center; width: 100%; padding: 12px 10px;
+    margin-bottom: 20px; border-radius: 15px; cursor: pointer; transition: 0.3s;
+}
+.icon:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
+.symbol { font-size: 1.6rem; min-width: 50px; display: flex; justify-content: center; }
+.label { opacity: 0; transform: translateX(-10px); transition: 0.3s; font-weight: 500; }
+.sidebar:hover .label { opacity: 1; transform: translateX(0); }
+
+/* Grid & Cards */
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+.cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 25px;
+    padding: 20px; width: 100%; max-width: 1200px; margin: 0 auto;
+}
+
+.blur-card {
+    position: relative; height: 340px; background: var(--glass-bg);
+    backdrop-filter: blur(20px); border: 1px solid var(--glass-border);
+    border-radius: 24px; padding: 30px; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    transition: all 0.3s ease;
+    cursor: pointer; transform-style: preserve-3d;
+}
+
+.blur-card:hover { border-color: var(--accent-pink); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+.card-bg-image {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; opacity: 0.4; pointer-events: none;
+}
+.card-bg-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+.card-content { position: relative; z-index: 2; pointer-events: none; }
+.card-content h3 { margin: 0; font-size: 1.5rem; }
+.card-content p { color: #ccc; margin-top: 5px; }
+
+/* --- PORTAL ZOOM ADDONS --- */
+.dashboard-container.portal-active {
+    filter: blur(20px) brightness(0.5);
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.blur-card.portal-expanding {
+    position: fixed !important;
+    z-index: 9999 !important;
+    transition: all 0.8s cubic-bezier(0.7, 0, 0.3, 1) !important;
+    pointer-events: none;
+    border-radius: 0 !important;
+}
+
+.portal-flash {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.portal-expanding .portal-flash {
+    opacity: 0.2;
+}
+/* --- Restored Search Bar Look --- */
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+/* --- Header Layout --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between; /* This pushes items to the corners */
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+
+/* --- Top Right Search Bar --- */
+.search-container {
+    width: 250px; /* Width from your original design */
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05); /* Original glass background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    backdrop-filter: blur(10px); /* Ensures the glass look matches cards */
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 15px rgba(255, 126, 179, 0.2);
+}
+
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}

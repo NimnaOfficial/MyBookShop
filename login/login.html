@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@nima | Log in</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="glass-card">
+            <h2>Login</h2>
+            <p class="subtitle">Are you not a member? <a href="#">Contact us</a></p>
+            
+            <form id="signin-form" action="login.php" method="POST">
+                <div class="input-group">
+                    <label>User</label>
+                    <input type="id" required placeholder="Enter your Username" name="Uname">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" required placeholder="••••••••" name="pwd">
+                </div>
+            <div id="page-content">
+                <button type="submit" class="btn-submit" id="btnLogin">Get in</button> </div>
+            </form>
+             <div class="page-flip-overlay"></div>
+    </div>
+
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

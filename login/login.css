@@ -1,0 +1,148 @@
+:root {
+    --primary-blue: #4a90e2;
+    --glass-white: rgba(255, 255, 255, 0.08);
+    --border-white: rgba(255, 255, 255, 0.15);
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use the landscape image from your reference */
+    background: url('https://wallpapers.com/images/high/moon-4k-crescent-purple-aesthetic-hbr8ns74qb5xkuek.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.glass-card {
+    width: 400px;
+    padding: 40px;
+    background: var(--glass-white);
+    backdrop-filter: blur(20px); /* Frosted effect */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-white);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+}
+
+h2 { font-size: 2rem; margin-bottom: 8px; }
+.subtitle { font-size: 0.9rem; color: #ccc; margin-bottom: 30px; }
+.subtitle a { color: var(--primary-blue); text-decoration: none; }
+
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; font-size: 0.8rem; margin-bottom: 8px; color: #ddd; }
+
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 0;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus { border-bottom-color: var(--primary-blue); }
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-blue);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.divider {
+    margin: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+}
+
+.divider span {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2a2a2a; /* Blends with blurred bg */
+    padding: 0 10px;
+    font-size: 0.7rem;
+    color: #888;
+}
+body {
+    perspective: 2000px;
+    background-color: #000;
+}
+
+.login-wrapper {
+    transform-origin: left center;
+    animation: openBook 1s cubic-bezier(0.15, 0, 0.15, 1) forwards;
+}
+
+@keyframes openBook {
+    0% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .info-grid { grid-template-columns: 1fr; text-align: center; }
+    .main-title { font-size: 4rem; }
+    .navbar { padding: 20px; }
+}
+/* Container for the 3D effect */
+body {
+    perspective: 2000px;
+    background-color: #000; /* Dark background behind the flip */
+    overflow-x: hidden;
+}
+
+#page-content {
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s;
+    transform-origin: left center;
+    backface-visibility: hidden;
+}
+
+/* The "Book Flip" Animation Class */
+.flip-active {
+    transform: rotateY(-90deg);
+    opacity: 0;
+}
+
+/* The colored "next page" that follows the flip */
+.page-flip-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1a142e; /* Match your login page background color */
+    transform: rotateY(90deg);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.overlay-active {
+    transform: rotateY(0deg);
+}
